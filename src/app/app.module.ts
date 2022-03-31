@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListFeedsComponent } from './components/list-feeds/list-feeds.component';
 import { FeedService } from './services/feed.service';
+import { ListEntriesComponent } from './components/list-entries/list-entries.component';
+import { EntryService } from './services/entry.service';
+import { NewsreaderService } from './services/newsreader.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListFeedsComponent,
+    ListEntriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +22,9 @@ import { FeedService } from './services/feed.service';
     HttpClientModule,
   ],
   providers: [
+    NewsreaderService,
     FeedService,
+    EntryService
   ],
   bootstrap: [AppComponent]
 })
