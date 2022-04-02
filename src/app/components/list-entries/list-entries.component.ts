@@ -18,7 +18,7 @@ export class ListEntriesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.newsreaderService.currentFeed.subscribe(feed => {
+    this.newsreaderService.currentFeed$.subscribe(feed => {
       this.entryService.getEntries(feed.id!).subscribe(entries => {
         this.entriesList = entries['hydra:member'];
       })
@@ -26,6 +26,6 @@ export class ListEntriesComponent implements OnInit {
   }
 
   public selectEntry(entry: Entry) {
-    this.newsreaderService.currentEntry$.next(entry);
+    this.newsreaderService.currentEntry.next(entry);
   }
 }

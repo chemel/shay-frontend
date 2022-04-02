@@ -6,14 +6,14 @@ import { Feed } from '../models/feed.model';
 @Injectable()
 export class NewsreaderService {
 
-    public currentFeed$ = new Subject<Feed>();
-    public currentFeed: Observable<Feed>;
+    public currentFeed: Subject<Feed> = new Subject<Feed>();
+    public currentFeed$: Observable<Feed>;
 
-    public currentEntry$ = new Subject<Entry>();
-    public currentEntry: Observable<Entry>;
+    public currentEntry: Subject<Entry> = new Subject<Entry>();
+    public currentEntry$: Observable<Entry>;
 
     constructor() {
-        this.currentFeed = this.currentFeed$.asObservable();
-        this.currentEntry = this.currentEntry$.asObservable();
+        this.currentFeed$ = this.currentFeed.asObservable();
+        this.currentEntry$ = this.currentEntry.asObservable();
     }
 }
