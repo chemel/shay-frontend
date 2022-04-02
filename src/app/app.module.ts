@@ -10,6 +10,7 @@ import { ListEntriesComponent } from './components/list-entries/list-entries.com
 import { EntryService } from './services/entry.service';
 import { NewsreaderService } from './services/newsreader.service';
 import { ShowEntryComponent } from './components/show-entry/show-entry.component';
+import { LayoutNewsreaderComponent } from './components/layout-newsreader/layout-newsreader.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ShowEntryComponent } from './components/show-entry/show-entry.component
     ListFeedsComponent,
     ListEntriesComponent,
     ShowEntryComponent,
+    LayoutNewsreaderComponent,
   ],
   imports: [
     BrowserModule,

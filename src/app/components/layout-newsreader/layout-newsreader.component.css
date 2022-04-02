@@ -1,0 +1,29 @@
+#newsreader {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+}
+
+#list-feeds {
+    height: 100vh;
+    overflow-y: scroll;
+    width: 25%;
+    background-color: #eee;
+}
+
+#list-entries {
+    height: 100vh;
+    overflow-y: scroll;
+    width: 25%;
+}
+
+#show-entry {
+    height: 100vh;
+    overflow-y: scroll;
+    width: 50%;
+}
+
+li {
+    list-style: none;
+}

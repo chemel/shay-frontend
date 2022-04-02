@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let feed of feedsList" (click)="selectFeed(feed)">
-        {{ feed.title }}: {{ feed.url }}
+    <li *ngFor="let feed of feedsList" (click)="selectFeed(feed)" title="{{ feed.url }}">
+        {{ feed.title }}
     </li>
 </ul>
