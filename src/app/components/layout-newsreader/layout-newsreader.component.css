@@ -9,19 +9,22 @@
     height: 100vh;
     overflow-y: scroll;
     width: 25%;
-    background-color: #eee;
+    color: #fff;
+    background-color: #555;
 }
 
 #list-entries {
     height: 100vh;
     overflow-y: scroll;
     width: 25%;
+    background-color: #eee;
 }
 
 #show-entry {
     height: 100vh;
     overflow-y: scroll;
     width: 50%;
+    padding: 2rem;
 }
 
 li {
