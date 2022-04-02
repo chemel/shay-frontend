@@ -12,6 +12,7 @@ import { NewsreaderService } from './services/newsreader.service';
 import { ShowEntryComponent } from './components/show-entry/show-entry.component';
 import { LayoutNewsreaderComponent } from './components/layout-newsreader/layout-newsreader.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { NewFeedComponent } from './components/new-feed/new-feed.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     ShowEntryComponent,
     LayoutNewsreaderComponent,
     ToolbarComponent,
+    NewFeedComponent,
   ],
   imports: [
     BrowserModule,
