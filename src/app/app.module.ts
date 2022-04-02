@@ -13,6 +13,7 @@ import { ShowEntryComponent } from './components/show-entry/show-entry.component
 import { LayoutNewsreaderComponent } from './components/layout-newsreader/layout-newsreader.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NewFeedComponent } from './components/new-feed/new-feed.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NewFeedComponent } from './components/new-feed/new-feed.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     NewsreaderService,

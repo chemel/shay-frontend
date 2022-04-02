@@ -14,4 +14,8 @@ export class FeedService {
     public getAll(): Observable<any> {
         return this.http.get(environment.backendUrl + '/feeds');
     }
+
+    public create(feed: Feed): Observable<any> {
+        return this.http.post(environment.backendUrl + '/feeds', feed);
+    }
 }
