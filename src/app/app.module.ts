@@ -14,6 +14,9 @@ import { LayoutNewsreaderComponent } from './components/layout-newsreader/layout
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NewFeedComponent } from './components/new-feed/new-feed.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
+import { CategoryService } from './services/category.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    DropdownModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     NewsreaderService,
     FeedService,
-    EntryService
+    EntryService,
+    CategoryService,
   ],
   bootstrap: [AppComponent]
 })
