@@ -11,6 +11,7 @@ import { NewsreaderService } from 'src/app/services/newsreader.service';
 export class ListEntriesComponent implements OnInit {
 
   public entriesList: Entry[] = [];
+  public selectedEntry? : Entry;
 
   constructor(
     private newsreaderService: NewsreaderService,
@@ -26,6 +27,7 @@ export class ListEntriesComponent implements OnInit {
   }
 
   public selectEntry(entry: Entry) {
+    this.selectedEntry = entry;
     this.newsreaderService.currentEntry.next(entry);
   }
 }
