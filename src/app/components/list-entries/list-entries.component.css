@@ -2,6 +2,7 @@ li.list-entries-entry {
     padding: 0.4rem 1rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    opacity: 0.5;
 }
 
 li.list-entries-entry.selected {
@@ -17,4 +18,9 @@ li.list-entries-entry.selected {
 
 li.list-entries-entry.selected .list-entries-entry-date  {
     opacity: 0.75;
+}
+
+li.list-entries-entry.unread {
+    font-weight: bold;
+    opacity: 1;
 }

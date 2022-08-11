@@ -27,7 +27,9 @@ export class ListEntriesComponent implements OnInit {
   }
 
   public selectEntry(entry: Entry) {
+    entry.readed = true;
     this.selectedEntry = entry;
     this.newsreaderService.currentEntry.next(entry);
+    this.entryService.read(entry).subscribe();
   }
 }

@@ -1,5 +1,5 @@
 <ul>
-    <li class="list-entries-entry" [class.selected]="entry.id === this.selectedEntry?.id" *ngFor="let entry of entriesList" (click)="selectEntry(entry)">
+    <li class="list-entries-entry" [class.unread]="!entry.readed" [class.selected]="entry.id === this.selectedEntry?.id" *ngFor="let entry of entriesList" (click)="selectEntry(entry)">
         <span class="list-entries-entry-date">{{ entry.date|date:'medium' }}</span>
         {{ entry.title }}
     </li>

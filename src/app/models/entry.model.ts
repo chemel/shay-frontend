@@ -1,7 +1,11 @@
 export class Entry {
     id?: string;
-    title?: string;
-    permalink?: string;
-    content?: string;
     date?: Date;
+    permalink?: string;
+    title?: string;
+    content?: string;
+    hash?: string;
+    readed?: Boolean;
+    createdAt?: Date;
+    feed?: string;
 }
