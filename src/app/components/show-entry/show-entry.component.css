@@ -1,0 +1,13 @@
+.entry-permalink {
+    background-color: #555;
+    padding: 10px;
+}
+
+.entry-permalink a {
+    color: #fff;
+}
+
+:host ::ng-deep .entry-content img { 
+    max-width: 100%;
+    height: auto;
+}
