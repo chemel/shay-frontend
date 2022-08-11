@@ -17,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { CategoryService } from './services/category.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormLoginComponent } from './components/form-login/form-login.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LayoutNewsreaderComponent,
     ToolbarComponent,
     NewFeedComponent,
+    FormLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
   ],
   providers: [
+    AuthService,
     NewsreaderService,
     FeedService,
     EntryService,
