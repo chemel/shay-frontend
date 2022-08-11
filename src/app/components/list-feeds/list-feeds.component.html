@@ -2,7 +2,7 @@
     <li class="list-feeds-category">
         {{ category.name }}
     </li>
-    <li class="list-feeds-feed" *ngFor="let feed of getFeedsForCategory(category)" (click)="selectFeed(feed)" title="{{ feed.url }}">
+    <li class="list-feeds-feed" [class.selected]="feed.id === this.selectedFeed?.id" *ngFor="let feed of getFeedsForCategory(category)" (click)="selectFeed(feed)" title="{{ feed.url }}">
         {{ feed.title }}
     </li>
 </ul>

@@ -7,3 +7,7 @@ li.list-feeds-category {
 li.list-feeds-feed {
     padding: 0.3rem 0.3rem 0.3rem 1.5rem;
 }
+
+li.list-feeds-feed.selected {
+    background-color: #0b5ed7;
+}

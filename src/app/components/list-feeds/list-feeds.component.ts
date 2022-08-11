@@ -14,6 +14,7 @@ export class ListFeedsComponent implements OnInit {
 
   public feedsCategoriesList: Category[] = [];
   public feedsList: Feed[] = [];
+  public selectedFeed?: Feed;
   
   constructor(
     private newsreaderService: NewsreaderService,
@@ -38,6 +39,7 @@ export class ListFeedsComponent implements OnInit {
   }
 
   public selectFeed(feed: Feed) {
+    this.selectedFeed = feed;
     this.newsreaderService.currentFeed.next(feed);
   }
 }
