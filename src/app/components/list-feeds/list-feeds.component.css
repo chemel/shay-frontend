@@ -1,3 +1,9 @@
-li {
-    padding: 0.3rem 1rem;
+li.list-feeds-category {
+    margin-top: 1.5rem;
+    padding: 0.5rem 0 0.3rem 0.5rem;
+    background-color: #333;
+}
+
+li.list-feeds-feed {
+    padding: 0.3rem 0.3rem 0.3rem 1.5rem;
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/models/category.model';
 import { Feed } from 'src/app/models/feed.model';
+import { CategoryService } from 'src/app/services/category.service';
 import { FeedService } from 'src/app/services/feed.service';
 import { NewsreaderService } from 'src/app/services/newsreader.service';
 
@@ -10,16 +12,28 @@ import { NewsreaderService } from 'src/app/services/newsreader.service';
 })
 export class ListFeedsComponent implements OnInit {
 
+  public feedsCategoriesList: Category[] = [];
   public feedsList: Feed[] = [];
-
+  
   constructor(
     private newsreaderService: NewsreaderService,
+    private categoryService: CategoryService,
     private feedService: FeedService
   ) { }
 
   ngOnInit(): void {
+    this.categoryService.getAll().subscribe(categories => {
+      this.feedsCategoriesList = categories['hydra:member'];
+    });
+
     this.feedService.getAll().subscribe(data => {
       this.feedsList = data['hydra:member'];
+    });
+  }
+
+  public getFeedsForCategory(category: Category) {
+    return this.feedsList.filter(f => {
+      return f.category == ('/api/categories/' + category.id);
     });
   }
 

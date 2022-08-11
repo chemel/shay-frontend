@@ -1,5 +1,8 @@
-<ul>
-    <li *ngFor="let feed of feedsList" (click)="selectFeed(feed)" title="{{ feed.url }}">
+<ul *ngFor="let category of feedsCategoriesList">
+    <li class="list-feeds-category">
+        {{ category.name }}
+    </li>
+    <li class="list-feeds-feed" *ngFor="let feed of getFeedsForCategory(category)" (click)="selectFeed(feed)" title="{{ feed.url }}">
         {{ feed.title }}
     </li>
 </ul>
