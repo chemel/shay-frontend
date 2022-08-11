@@ -1,7 +1,11 @@
 <div *ngIf="entry">
     <h1>{{ entry.title }}</h1>    
+
+    <p class="entry-date">{{ entry.date|date:'medium' }}</p>
+
     <p class="entry-permalink">
         <a target="_blank" href="{{ entry.permalink }}">{{ entry.permalink }}</a>
     </p>
+
     <div class="entry-content" [innerHTML]="entry.content"></div>
 </div>
