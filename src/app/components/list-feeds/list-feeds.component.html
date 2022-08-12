@@ -3,6 +3,7 @@
         {{ category.name }}
     </li>
     <li class="list-feeds-feed" [class.selected]="feed.id === this.selectedFeed?.id" *ngFor="let feed of getFeedsForCategory(category)" (click)="selectFeed(feed)" title="{{ feed.url }}">
+        <img class="list-feeds-feed-favicon" src="https://www.google.com/s2/favicons?domain={{ feed.url }}" />
         {{ feed.title }}
     </li>
 </ul>
