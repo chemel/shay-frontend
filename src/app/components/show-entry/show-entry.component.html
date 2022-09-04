@@ -7,5 +7,5 @@
         <a target="_blank" href="{{ entry.permalink }}">{{ entry.permalink }}</a>
     </p>
 
-    <div class="entry-content" [innerHTML]="entry.content"></div>
+    <div class="entry-content" [innerHTML]="entry.content | sanitizeHtml"></div>
 </div>

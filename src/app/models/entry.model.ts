@@ -3,7 +3,7 @@ export class Entry {
     date?: Date;
     permalink?: string;
     title?: string;
-    content?: string;
+    content: string = '';
     hash?: string;
     readed?: Boolean;
     createdAt?: Date;

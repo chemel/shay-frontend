@@ -19,6 +19,7 @@ import { CategoryService } from './services/category.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { AuthService } from './services/auth.service';
+import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthService } from './services/auth.service';
     ToolbarComponent,
     NewFeedComponent,
     FormLoginComponent,
+    SanitizeHtmlPipe
   ],
   imports: [
     BrowserModule,
