@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { AuthService } from './services/auth.service';
 import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
+import { AuthInterceptor } from './http-interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
     FeedService,
     EntryService,
     CategoryService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

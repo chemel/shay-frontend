@@ -23,14 +23,7 @@ export class AuthService {
         return this.http.post(environment.backendUrl + '/authentication_token', formData);
     }
 
-    public getHeaders(extraHeaders: {} = {}) {
-        const jwtToken = localStorage.getItem('jwtToken');
-        return {
-            headers: new HttpHeaders({
-                // 'Content-Type': 'application/text',
-                'Authorization': 'Bearer ' + jwtToken,
-                ...extraHeaders
-            })
-          };
+    public getAuthorizationToken(): string {
+        return localStorage.getItem('jwtToken')!;
     }
 }

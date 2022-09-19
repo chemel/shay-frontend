@@ -13,6 +13,6 @@ export class CategoryService {
     ) { }
 
     public getAll(): Observable<any> {
-        return this.http.get(environment.backendUrl + '/categories', this.authService.getHeaders());
+        return this.http.get(environment.backendUrl + '/categories');
     }
 }
