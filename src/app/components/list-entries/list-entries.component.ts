@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Entry } from 'src/app/models/entry.model';
 import { EntryService } from 'src/app/services/entry.service';
 import { NewsreaderService } from 'src/app/services/newsreader.service';
@@ -8,8 +9,9 @@ import { NewsreaderService } from 'src/app/services/newsreader.service';
   templateUrl: './list-entries.component.html',
   styleUrls: ['./list-entries.component.css']
 })
-export class ListEntriesComponent implements OnInit {
+export class ListEntriesComponent implements OnInit, OnDestroy {
 
+  public subscriptions: Subscription[] = [];
   public entriesList: Entry[] = [];
   public selectedEntry? : Entry;
 
@@ -18,12 +20,18 @@ export class ListEntriesComponent implements OnInit {
     private entryService: EntryService
   ) { }
 
-  ngOnInit(): void {
-    this.newsreaderService.currentFeed$.subscribe(feed => {
-      this.entryService.getEntries(feed.id!).subscribe(entries => {
-        this.entriesList = entries['hydra:member'];
+  public ngOnInit(): void {
+    this.subscriptions.push(
+      this.newsreaderService.currentFeed$.subscribe(feed => {
+        this.entryService.getEntries(feed.id!).subscribe(entries => {
+          this.entriesList = entries['hydra:member'];
+        })
       })
-    })
+    );
+  }
+
+  public ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   public selectEntry(entry: Entry) {
