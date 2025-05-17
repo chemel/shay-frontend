@@ -1,44 +1,34 @@
-import { Injectable } from '@angular/core';
-import {
-  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse
-} from '@angular/common/http';
-import { catchError, EMPTY, Observable, throwError } from 'rxjs';
+import { HttpInterceptorFn, HttpRequest, HttpHandlerFn, HttpErrorResponse } from '@angular/common/http';
+import { catchError, EMPTY, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { inject } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export const authInterceptor: HttpInterceptorFn = (
+  req: HttpRequest<unknown>,
+  next: HttpHandlerFn
+) => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) { }
-
-  public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-    const isApiRequest = req.url.startsWith(environment.backendUrl);
-    if (isApiRequest) {
-      const authToken = this.authService.getAuthorizationToken();
-      if(authToken) {
-        req = req.clone({
-          headers: req.headers.set('Authorization', 'Bearer ' + authToken)
-        });
-      }
+  const isApiRequest = req.url.startsWith(environment.backendUrl);
+  if (isApiRequest) {
+    const authToken = authService.getAuthorizationToken();
+    if(authToken) {
+      req = req.clone({
+        headers: req.headers.set('Authorization', 'Bearer ' + authToken)
+      });
     }
-
-    return next.handle(req).pipe(
-      catchError(err => {
-        if(err instanceof HttpErrorResponse && err.status === 401) {
-          return this.handleUnauthorized(req, next);
-        }
-        return throwError(() => err);
-      })
-    );
   }
 
-  private handleUnauthorized(req: HttpRequest<any>, next: HttpHandler) {
-    this.router.navigate(['login']);
-    return EMPTY;
-  }
-}
+  return next(req).pipe(
+    catchError(err => {
+      if(err instanceof HttpErrorResponse && err.status === 401) {
+        router.navigate(['login']);
+        return EMPTY;
+      }
+      return throwError(() => err);
+    })
+  );
+};
