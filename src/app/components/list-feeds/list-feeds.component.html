@@ -1,9 +1,33 @@
-<ul *ngFor="let category of feedsCategoriesList">
-    <li class="list-feeds-category">
-        {{ category.name }}
-    </li>
-    <li class="list-feeds-feed" [class.selected]="feed.id === this.selectedFeed?.id" *ngFor="let feed of getFeedsForCategory(category)" (click)="selectFeed(feed)" title="{{ feed.url }}">
-        <img class="list-feeds-feed-favicon" src="https://www.google.com/s2/favicons?domain={{ feed.url }}" />
-        {{ feed.title }}
-    </li>
-</ul>
+<div class="min-h-screen bg-gray-50 py-8">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div class="space-y-6">
+            <div *ngFor="let category of feedsCategoriesList" class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <div class="px-4 py-3 bg-gray-50 border-b border-gray-200">
+                    <h2 class="text-lg font-medium text-gray-900">{{ category.name }}</h2>
+                </div>
+                <ul class="divide-y divide-gray-200">
+                    <li *ngFor="let feed of getFeedsForCategory(category)" 
+                        (click)="selectFeed(feed)" 
+                        [class.bg-indigo-50]="feed.id === this.selectedFeed?.id"
+                        class="group flex items-center gap-3 px-4 py-3 hover:bg-gray-50 cursor-pointer transition-colors duration-150"
+                        [title]="feed.url">
+                        <img class="h-5 w-5 flex-shrink-0" 
+                             [src]="'https://www.google.com/s2/favicons?domain=' + feed.url" 
+                             [alt]="feed.title + ' favicon'" />
+                        <span class="flex-1 text-sm text-gray-900 group-hover:text-indigo-600">{{ feed.title }}</span>
+                        <svg *ngIf="feed.id === this.selectedFeed?.id" 
+                             class="h-5 w-5 text-indigo-600" 
+                             fill="none" 
+                             stroke="currentColor" 
+                             viewBox="0 0 24 24">
+                            <path stroke-linecap="round" 
+                                  stroke-linejoin="round" 
+                                  stroke-width="2" 
+                                  d="M5 13l4 4L19 7" />
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

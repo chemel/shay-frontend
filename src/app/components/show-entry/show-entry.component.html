@@ -1,11 +1,13 @@
-<div *ngIf="entry">
-    <h1>{{ entry.title }}</h1>    
+<div *ngIf="entry" class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ entry.title }}</h1>    
 
-    <p class="entry-date">{{ entry.date|date:'medium' }}</p>
-
-    <p class="entry-permalink">
-        <a target="_blank" href="{{ entry.permalink }}">{{ entry.permalink }}</a>
+    <p class="text-sm text-gray-500">{{ entry.date|date:'medium' }}</p>
+    <p class="text-sm">
+        <a target="_blank" href="{{ entry.permalink }}" 
+           class="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200">
+            {{ entry.permalink }}
+        </a>
     </p>
 
-    <div class="entry-content" [innerHTML]="entry.content | sanitizeHtml"></div>
+    <div class="entry-content prose prose-lg max-w-none" [innerHTML]="entry.content | sanitizeHtml"></div>
 </div>
