@@ -1,20 +1,57 @@
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-6">
-            <h1>New feed</h1>
+<div class="min-h-screen bg-gray-50 py-12">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-lg shadow-sm p-6 sm:p-8">
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold text-gray-900">Ajouter un nouveau flux</h1>
+                <p class="mt-2 text-sm text-gray-600">Entrez l'URL du flux RSS et sélectionnez une catégorie</p>
+            </div>
 
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <div class="mb-3">
-                    <label for="form-control-url">Url</label>
-                    <input id="form-control-url" class="form-control" type="text" formControlName="url" />
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-6">
+                <div>
+                    <label for="form-control-url" class="block text-sm font-medium text-gray-700 mb-1">
+                        URL du flux
+                    </label>
+                    <div class="relative rounded-md shadow-sm">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                            </svg>
+                        </div>
+                        <input id="form-control-url" 
+                               type="text" 
+                               formControlName="url"
+                               class="block w-full rounded-md border border-gray-300 pl-10 py-2 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                               placeholder="https://example.com/feed.xml" />
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="form-control-category">Category</label><br />
-                    <p-dropdown id="form-control-category" formControlName="category" [options]="categories" optionLabel="name" optionValue="@id"></p-dropdown>    
+                <div>
+                    <label for="form-control-category" class="block text-sm font-medium text-gray-700 mb-1">
+                        Catégorie
+                    </label>
+                    <div class="relative">
+                        <p-dropdown id="form-control-category" 
+                                  formControlName="category" 
+                                  [options]="categories" 
+                                  optionLabel="name" 
+                                  optionValue="@id"
+                                  class="w-full"
+                                  [style]="{'width':'100%'}"
+                                  placeholder="Sélectionnez une catégorie">
+                        </p-dropdown>
+                    </div>
                 </div>
 
-                <button class="btn btn-success" type="submit" [disabled]="form.invalid">Add feed</button>
+                <div class="flex justify-end">
+                    <button type="submit" 
+                            [disabled]="form.invalid"
+                            class="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-indigo-400 disabled:cursor-not-allowed">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Ajouter le flux
+                    </button>
+                </div>
             </form>
         </div>
     </div>
