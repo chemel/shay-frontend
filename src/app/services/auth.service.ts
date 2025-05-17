@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthService {
 
     public jwtToken: Subject<string> = new Subject<string>();

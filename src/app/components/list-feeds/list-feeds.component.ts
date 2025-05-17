@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
 import { Feed } from 'src/app/models/feed.model';
@@ -8,7 +9,8 @@ import { NewsreaderService } from 'src/app/services/newsreader.service';
 @Component({
   selector: 'app-list-feeds',
   templateUrl: './list-feeds.component.html',
-  styleUrls: ['./list-feeds.component.css']
+  styleUrls: ['./list-feeds.component.css'],
+  imports: [CommonModule]
 })
 export class ListFeedsComponent implements OnInit {
 

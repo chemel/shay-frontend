@@ -4,7 +4,10 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ToolbarComponent],
+  imports: [
+    RouterOutlet,
+    ToolbarComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

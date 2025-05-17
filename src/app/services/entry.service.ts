@@ -5,7 +5,9 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { Entry } from '../models/entry.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class EntryService {
 
     constructor(

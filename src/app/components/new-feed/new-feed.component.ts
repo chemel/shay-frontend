@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Feed } from 'src/app/models/feed.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { FeedService } from 'src/app/services/feed.service';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
+
 @Component({
   selector: 'app-new-feed',
   templateUrl: './new-feed.component.html',
-  styleUrls: ['./new-feed.component.css']
+  styleUrls: ['./new-feed.component.css'],
+  imports: [DropdownModule, ReactiveFormsModule]
 })
 export class NewFeedComponent implements OnInit {
   public form: FormGroup;
@@ -26,7 +28,7 @@ export class NewFeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe(categories => {
-      this.categories = categories['hydra:member'];
+      this.categories = categories['member'];
     });
   }
 

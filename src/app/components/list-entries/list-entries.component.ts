@@ -1,11 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { Entry } from 'src/app/models/entry.model';
-import { EntryService } from 'src/app/services/entry.service';
-import { NewsreaderService } from 'src/app/services/newsreader.service';
+import { Entry } from '@app/models/entry.model';
+import { EntryService } from '@services/entry.service';
+import { NewsreaderService } from '@services/newsreader.service';
 
 @Component({
   selector: 'app-list-entries',
+  imports: [CommonModule],
   templateUrl: './list-entries.component.html',
   styleUrls: ['./list-entries.component.css']
 })

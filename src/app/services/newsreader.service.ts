@@ -3,7 +3,9 @@ import { Observable, Subject } from 'rxjs';
 import { Entry } from '../models/entry.model';
 import { Feed } from '../models/feed.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class NewsreaderService {
 
     public currentFeed: Subject<Feed> = new Subject<Feed>();
