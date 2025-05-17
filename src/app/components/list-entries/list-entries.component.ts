@@ -24,7 +24,7 @@ export class ListEntriesComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.newsreaderService.currentFeed$.subscribe(feed => {
         this.entryService.getEntries(feed.id!).subscribe(entries => {
-          this.entriesList = entries['hydra:member'];
+          this.entriesList = entries['member'];
         })
       })
     );
