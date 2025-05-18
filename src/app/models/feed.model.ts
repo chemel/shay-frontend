@@ -1,8 +1,10 @@
+import { Category } from "./category.model";
+
 export class Feed {
   id?: number;
   title?: string;
   url?: string;
-  category?: string;
+  category?: Category;
 
   public get domain(): string {
     if(this.url === undefined) {

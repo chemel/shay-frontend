@@ -36,7 +36,7 @@ export class ListFeedsComponent implements OnInit {
 
   public getFeedsForCategory(category: Category) {
     return this.feedsList.filter(f => {
-      return f.category == ('/api/categories/' + category.id);
+      return f.category?.id === category.id;
     });
   }
 
