@@ -28,7 +28,7 @@ export class NewFeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe(categories => {
-      this.categories = categories['member'];
+      this.categories = categories;
     });
   }
 

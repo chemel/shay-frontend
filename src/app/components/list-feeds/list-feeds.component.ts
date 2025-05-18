@@ -26,11 +26,11 @@ export class ListFeedsComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe(categories => {
-      this.feedsCategoriesList = categories['member'];
+      this.feedsCategoriesList = categories;
     });
 
     this.feedService.getAll().subscribe(data => {
-      this.feedsList = data['member'];
+      this.feedsList = data;
     });
   }
 
