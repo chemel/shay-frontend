@@ -21,7 +21,7 @@ export class NewFeedComponent implements OnInit {
     private categoryService: CategoryService
   ) {
     this.form = this.formBuilder.group({
-      url: ['', Validators.required],
+      url: ['', [Validators.required, Validators.pattern('^https?://[^\\s/$.?#].[^\\s]*$')]],
       category: ['', Validators.required],
     });
   }
