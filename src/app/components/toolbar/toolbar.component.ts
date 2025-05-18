@@ -1,15 +1,28 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { User } from '@app/models/user.model';
+import { AuthService } from '@app/services/auth.service';
 
 @Component({
   selector: 'app-toolbar',
-  imports: [RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  protected isUserLogged: boolean = false;
+
+  constructor(
+    private authService: AuthService
+  ) {
+    this.authService.user.subscribe(user => {
+      this.isUserLogged = user instanceof User;
+    });
+
+    this.isUserLogged = this.authService.getUser() instanceof User;
+  }
 
   ngOnInit(): void {
   }

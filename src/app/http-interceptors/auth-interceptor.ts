@@ -14,7 +14,7 @@ export const authInterceptor: HttpInterceptorFn = (
 
   const isApiRequest = req.url.startsWith(environment.backendUrl);
   if (isApiRequest) {
-    const authToken = authService.getAuthorizationToken();
+    const authToken = authService.getJwt();
     if(authToken) {
       req = req.clone({
         headers: req.headers.set('Authorization', 'Bearer ' + authToken)

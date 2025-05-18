@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 import { CommonModule } from '@angular/common';
+import { User } from '@app/models/user.model';
 
 interface LoginResponse {
   token?: string;
@@ -51,8 +52,15 @@ export class FormLoginComponent implements OnInit {
       this.authService.login(username, password).subscribe({
         next: (data: LoginResponse) => {
           if(data.token) {
-            this.authService.jwtToken.next(data.token); // TODO Remove ?
-            localStorage.setItem('jwtToken', data.token);
+            // Saving JWT token
+            this.authService.setJwt(data.token);
+
+            // Create the user
+            const user = new User();
+            user.username = username;
+            this.authService.setUser(user);
+            
+            // Redirect to the reader
             this.router.navigate(['reader']);
           }
           else {
