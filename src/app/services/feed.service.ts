@@ -20,6 +20,10 @@ export class FeedService {
     }
 
     public create(feed: Feed): Observable<any> {
-        return this.http.post(environment.backendUrl + '/feeds', feed);
+        const data = {
+            'url': feed.url,
+            'category': '/api/categories/' + feed.category?.id,
+        };
+        return this.http.post(environment.backendUrl + '/feeds', data);
     }
 }
