@@ -22,7 +22,7 @@ export class AuthService {
             'username': username,
             'password': password
         };
-        return this.http.post(environment.backendUrl + '/authentication_token', formData);
+        return this.http.post(environment.backendUrl + '/login', formData);
     }
 
     public getAuthorizationToken(): string {
