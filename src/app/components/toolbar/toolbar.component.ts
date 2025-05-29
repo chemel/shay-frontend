@@ -18,10 +18,8 @@ export class ToolbarComponent implements OnInit {
     private authService: AuthService
   ) {
     this.authService.user.subscribe(user => {
-      this.isUserLogged = user instanceof User;
+      this.isUserLogged = user.username !== undefined;
     });
-
-    this.isUserLogged = this.authService.getUser() instanceof User;
   }
 
   ngOnInit(): void {
