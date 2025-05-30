@@ -30,4 +30,8 @@ export class FeedService {
         };
         return this.http.post(environment.backendUrl + '/feeds', data);
     }
+
+    public delete(feed: Feed): Observable<any> {
+        return this.http.delete(environment.backendUrl + '/feeds/' + feed.id);
+    }
 }
