@@ -37,7 +37,7 @@ export class NewFeedComponent implements OnInit {
     if(this.form.valid) {
       const formData = this.form.value as Feed;
       this.feedService.create(formData).subscribe(data => {
-        console.log(data);
+        this.form.reset();
       });
     }
   }

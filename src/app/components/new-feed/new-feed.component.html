@@ -2,14 +2,14 @@
     <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-lg shadow-sm p-6 sm:p-8">
             <div class="mb-8">
-                <h1 class="text-2xl font-bold text-gray-900">Ajouter un nouveau flux</h1>
-                <p class="mt-2 text-sm text-gray-600">Entrez l'URL du flux RSS et sélectionnez une catégorie</p>
+                <h1 class="text-2xl font-bold text-gray-900">Add new feed</h1>
+                <p class="mt-2 text-sm text-gray-600">Enter the RSS feed URL and select a category</p>
             </div>
 
             <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-6">
                 <div>
                     <label for="form-control-url" class="block text-sm font-medium text-gray-700 mb-1">
-                        URL du flux
+                        Feed URL
                     </label>
                     <div class="relative rounded-md shadow-sm">
                         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -27,7 +27,7 @@
 
                 <div>
                     <label for="form-control-category" class="block text-sm font-medium text-gray-700 mb-1">
-                        Catégorie
+                        Category
                     </label>
                     <div class="relative">
                         <p-dropdown id="form-control-category" 
@@ -36,7 +36,7 @@
                                   optionLabel="name" 
                                   class="w-full"
                                   [style]="{'width':'100%'}"
-                                  placeholder="Sélectionnez une catégorie">
+                                  placeholder="Select a category">
                         </p-dropdown>
                     </div>
                 </div>
@@ -44,11 +44,11 @@
                 <div class="flex justify-end">
                     <button type="submit" 
                             [disabled]="form.invalid"
-                            class="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-indigo-400 disabled:cursor-not-allowed">
+                            class="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed">
                         <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                         </svg>
-                        Ajouter le flux
+                        Add feed
                     </button>
                 </div>
             </form>
