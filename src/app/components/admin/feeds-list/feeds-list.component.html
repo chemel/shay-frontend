@@ -1,39 +1,43 @@
-<div class="container mx-auto mt-5">
+<div class="container mx-auto px-4 py-8">
+    <div class="mb-8">
+        <h1 class="text-2xl text-center font-bold text-gray-900 mb-6">Feeds Management</h1>
 
-    <h1 class="text-2xl font-bold mb-5">Feeds list</h1>
-
-    <p-table [value]="feedsList"> 
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Title</th>
-                <th>URL</th>
-                <th>Category</th>
-                <th>Action</th>
-            </tr>
-        </ng-template>
-        
-        <ng-template pTemplate="body" let-feed>
-            <tr>
-                <td>{{feed.title}}</td>
-                <td>
-                    <a [href]="feed.url" target="_blank">{{feed.url}}</a>
-                </td>
-                <td>{{feed.category?.name}}</td>
-                <td>
-                    <div class="flex gap-2">
-                        <p-button icon="pi pi-trash" size="small" [rounded]="true" severity="danger"
-                            (click)="deleteFeed(feed)"></p-button>
+        <!-- Feeds grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div *ngFor="let feed of feedsList" 
+                class="bg-white rounded-lg shadow p-6 flex flex-col">
+                <div class="flex flex-col gap-2">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-grow">
+                            <h3 class="text-lg font-semibold text-gray-800">{{feed.title}}</h3>
+                            <a [href]="feed.url" target="_blank" 
+                               class="text-sm text-indigo-600 hover:text-indigo-800 break-all">
+                                {{feed.url}}
+                            </a>
+                        </div>
+                        <div class="ml-4">
+                            <p-button icon="pi pi-trash" 
+                                severity="danger"
+                                [text]="true"
+                                (onClick)="deleteFeed(feed)">
+                            </p-button>
+                        </div>
                     </div>
-                </td>
-            </tr>
-        </ng-template>
-        
-        <ng-template pTemplate="emptymessage">
-            <tr>
-                <td colspan="4" class="text-center p-4">No feed found.</td>
-            </tr>
-        </ng-template>
-    </p-table>
-</div>
+                    <div class="mt-2">
+                        <span class="inline-flex items-center rounded-full bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700">
+                            {{feed.category?.name || 'No category'}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<p-confirmdialog />
+        <!-- Empty state -->
+        <div *ngIf="feedsList.length === 0" 
+            class="bg-gray-50 rounded-lg p-8 text-center">
+            <p class="text-gray-600">No feed found.</p>
+        </div>
+    </div>
+
+    <p-confirmDialog></p-confirmDialog>
+</div>
