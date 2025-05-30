@@ -18,7 +18,7 @@ export class ToolbarComponent implements OnInit {
     private authService: AuthService
   ) {
     this.authService.user.subscribe(user => {
-      this.isUserLogged = user.username !== undefined;
+      this.isUserLogged = user instanceof User;
     });
   }
 
