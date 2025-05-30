@@ -16,9 +16,9 @@
                             >
                         </div>
                         <p-button type="submit" 
-                            label="Add Category" 
+                            label="{{ isLoading ? 'Adding...' : 'Add Category' }}"
                             icon="pi pi-plus"
-                            [disabled]="categoryForm.invalid"
+                            [disabled]="categoryForm.invalid || isLoading"
                             class="text-center">
                         </p-button>
                     </div>
@@ -52,5 +52,6 @@
         </div>
     </div>
 
+    <p-toast position="top-right"></p-toast>
     <p-confirmDialog></p-confirmDialog>
 </div>
