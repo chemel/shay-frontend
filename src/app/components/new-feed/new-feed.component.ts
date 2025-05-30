@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Category } from '@app/models/category.model';
 import { Feed } from 'src/app/models/feed.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { FeedService } from 'src/app/services/feed.service';
@@ -13,7 +14,7 @@ import { DropdownModule } from 'primeng/dropdown';
 })
 export class NewFeedComponent implements OnInit {
   public form: FormGroup;
-  public categories: [] = [];
+  public categories: Category[] = [];
 
   constructor(
     private formBuilder: FormBuilder,

@@ -1,4 +1,10 @@
+import { JsonObject, JsonProperty } from 'json2typescript';
+
+@JsonObject('Category')
 export class Category {
-    id?: string;
+    @JsonProperty('id', Number, true)
+    id?: number;
+
+    @JsonProperty('name', String, true)
     name?: string;
 }

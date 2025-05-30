@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { AuthService } from './auth.service';
 import { Entry } from '../models/entry.model';
+import { JsonService } from './json.service';
 
 @Injectable({
     providedIn: 'root'
@@ -12,11 +12,14 @@ export class EntryService {
 
     constructor(
         private http: HttpClient,
-        private authService: AuthService,
+        private jsonService: JsonService
     ) { }
 
-    public getEntries(feedId: number): Observable<any> {
-        return this.http.get(environment.backendUrl + '/entries?feed.id='+feedId);
+    public getEntries(feedId: number): Observable<Entry[]> {
+        return this.http.get<Entry[]>(environment.backendUrl + '/entries?feed.id='+feedId)
+            .pipe(
+                map(entries => this.jsonService.deserializeArray(entries, Entry))
+            );
     }
 
     public read(entry: Entry): Observable<any> {
