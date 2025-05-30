@@ -10,14 +10,7 @@
                 </a>
             </div>
 
-            <div class="flex items-center gap-4">
-                <a routerLink="/admin/feeds" 
-                   class="inline-flex items-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
-                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                    </svg>
-                    Feeds list
-                </a>
+            <div class="flex items-center gap-2">
                 <a routerLink="/new-feed" 
                    class="inline-flex items-center gap-2 rounded-md bg-indigo-600 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-700">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -25,6 +18,12 @@
                     </svg>
                     New feed
                 </a>
+
+                <p-menu #menu [model]="items" [popup]="true" />
+                <p-button icon="pi pi-bars" (click)="menu.toggle($event)" 
+                    [text]="true"
+                    severity="secondary">
+                </p-button>
             </div>
         </div>
     </div>
