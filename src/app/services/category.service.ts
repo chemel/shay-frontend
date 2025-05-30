@@ -21,4 +21,15 @@ export class CategoryService {
                 map(categories => this.jsonService.deserializeArray(categories, Category))
             );
     }
+    
+    public create(category: Category): Observable<Category> {
+        return this.http.post<Category>(environment.backendUrl + '/categories', category)
+            .pipe(
+                map(category => this.jsonService.deserialize(category, Category))
+            );
+    }
+
+    public delete(category: Category): Observable<any> {
+        return this.http.delete(environment.backendUrl + '/categories/' + category.id);
+    }
 }
