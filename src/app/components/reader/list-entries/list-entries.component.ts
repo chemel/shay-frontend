@@ -40,6 +40,7 @@ export class ListEntriesComponent implements OnInit, OnDestroy {
     entry.readed = true;
     this.selectedEntry = entry;
     this.newsreaderService.currentEntry.next(entry);
+    this.newsreaderService.currentView.next('reader');
     this.entryService.read(entry).subscribe();
   }
 }

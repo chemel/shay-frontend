@@ -43,5 +43,6 @@ export class ListFeedsComponent implements OnInit {
   public selectFeed(feed: Feed) {
     this.selectedFeed = feed;
     this.newsreaderService.currentFeed.next(feed);
+    this.newsreaderService.currentView.next('entries');
   }
 }
