@@ -52,7 +52,7 @@ export class FormLoginComponent implements OnInit {
 
             // Getting user from backend
             this.userService.getCurrentUser().subscribe((user) => {
-              this.authService.setUser(user);
+              this.authService.user.next(user);
             });
 
             // Redirect to the reader

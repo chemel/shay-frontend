@@ -28,26 +28,10 @@ export class AuthService {
     }
 
     public setJwt(token: string): void {
-        localStorage.setItem('jwtToken', token);
+        localStorage.setItem('jwt', token);
     }
 
     public getJwt(): string {
-        return localStorage.getItem('jwtToken')!;
-    }
-
-    public setUser(user: User): void {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.user.next(user);
-    }
-
-    public getUser(): User|boolean {
-        const currentUserString = localStorage.getItem('currentUser')!;
-        if(!currentUserString) {
-            return false;
-        }
-        const currentUser = JSON.parse(currentUserString);
-        let user = new User();
-        Object.assign(user, currentUser);
-        return user;
+        return localStorage.getItem('jwt')!;
     }
 }

@@ -19,7 +19,7 @@ export class AppComponent {
     private authService: AuthService
   ) {
     this.userService.getCurrentUser().subscribe((user) => {
-      this.authService.setUser(user);
+      this.authService.user.next(user);
     });
   }
 }
