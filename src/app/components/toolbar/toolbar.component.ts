@@ -14,7 +14,7 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  public isUserLogged: boolean = false;
+  public isUserAuthenticated: boolean = false;
 
   public items: MenuItem[] = [
     {
@@ -41,7 +41,7 @@ export class ToolbarComponent implements OnInit {
     {
       label: 'Logout',
       icon: 'pi pi-sign-out',
-      routerLink: '/login'
+      routerLink: '/logout'
     }
   ];
 
@@ -53,7 +53,7 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.user.subscribe(user => {
-      this.isUserLogged = user instanceof User;
+      this.isUserAuthenticated = user.isAuthenticated();
     });
   }
 }

@@ -7,4 +7,8 @@ export class User {
 
     @JsonProperty('roles', [String], true)
     roles?: string[];
+
+    public isAuthenticated(): boolean {
+        return this.username !== undefined;
+    }
 }

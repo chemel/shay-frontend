@@ -3,18 +3,8 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 import { CommonModule } from '@angular/common';
-import { User } from '@app/models/user.model';
-
-interface LoginResponse {
-  token?: string;
-}
-
-interface ErrorResponse {
-  error: {
-    code?: number;
-    message?: string;
-  }
-}
+import { UserService } from '@app/services/user.service';
+import { LoginResponse } from '@app/interfaces/login-response.interface';
 
 @Component({
   selector: 'app-form-login',
@@ -30,6 +20,7 @@ export class FormLoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private userService: UserService,
     private router: Router
   ) {
     this.form = this.formBuilder.group({
@@ -39,7 +30,11 @@ export class FormLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.clear();
+    this.authService.user.subscribe(user => {
+      if(user.isAuthenticated()) {
+        this.router.navigate(['reader']);
+      }
+    });
   }
 
   public onSubmit() {
@@ -55,11 +50,11 @@ export class FormLoginComponent implements OnInit {
             // Saving JWT token
             this.authService.setJwt(data.token);
 
-            // Create the user
-            const user = new User();
-            user.username = username;
-            this.authService.setUser(user);
-            
+            // Getting user from backend
+            this.userService.getCurrentUser().subscribe((user) => {
+              this.authService.setUser(user);
+            });
+
             // Redirect to the reader
             this.router.navigate(['reader']);
           }
@@ -67,7 +62,7 @@ export class FormLoginComponent implements OnInit {
             this.errorMessage = 'Unexpected error';
           }
         },
-        error: (data: ErrorResponse) => {
+        error: (data) => {
           if(data.error.code && data.error.code == 401 && data.error.message) {
             this.errorMessage = data.error.message;
           }
