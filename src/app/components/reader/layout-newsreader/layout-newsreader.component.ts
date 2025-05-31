@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ListEntriesComponent } from '../list-entries/list-entries.component';
 import { ShowEntryComponent } from '../show-entry/show-entry.component';
 import { ListFeedsComponent } from '../list-feeds/list-feeds.component';
+
+type ViewType = 'feeds' | 'entries' | 'reader';
 
 @Component({
   selector: 'app-layout-newsreader',
@@ -9,10 +11,18 @@ import { ListFeedsComponent } from '../list-feeds/list-feeds.component';
   styleUrls: ['./layout-newsreader.component.css'],
   imports: [ListFeedsComponent, ListEntriesComponent, ShowEntryComponent]
 })
-export class LayoutNewsreaderComponent implements OnInit {
+export class LayoutNewsreaderComponent {
+  public currentView: ViewType = 'feeds';
 
-  constructor() { }
+  public showFeeds(): void {
+    this.currentView = 'feeds';
+  }
 
-  ngOnInit(): void {
+  public showEntries(): void {
+    this.currentView = 'entries';
+  }
+
+  public showReader(): void {
+    this.currentView = 'reader';
   }
 }

@@ -1,5 +1,55 @@
-<div id="newsreader">
-    <app-list-feeds id="list-feeds"></app-list-feeds>
-    <app-list-entries id="list-entries"></app-list-entries>
-    <app-show-entry id="show-entry"></app-show-entry>    
+<div class="h-screen w-full bg-gray-50">
+    <!-- Mobile navigation -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50">
+        <div class="flex justify-around p-2">
+            <button (click)="showFeeds()" 
+                    class="flex flex-col items-center p-2 text-sm text-gray-600"
+                    [class.text-indigo-600]="currentView === 'feeds'">
+                <i class="pi pi-list text-lg"></i>
+                <span>Feeds</span>
+            </button>
+            <button (click)="showEntries()" 
+                    class="flex flex-col items-center p-2 text-sm text-gray-600"
+                    [class.text-indigo-600]="currentView === 'entries'">
+                <i class="pi pi-book text-lg"></i>
+                <span>Articles</span>
+            </button>
+            <button (click)="showReader()" 
+                    class="flex flex-col items-center p-2 text-sm text-gray-600"
+                    [class.text-indigo-600]="currentView === 'reader'">
+                <i class="pi pi-file-edit text-lg"></i>
+                <span>Reader</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="flex h-full">
+        <!-- Feeds sidebar -->
+        <div id="list-feeds" 
+             class="w-full lg:w-64 fixed lg:relative h-[calc(100vh-56px)] lg:h-full transition-transform duration-300 bg-white border-r border-gray-200"
+             [class.translate-x-0]="currentView === 'feeds'"
+             [class.-translate-x-full]="currentView !== 'feeds'"
+             [class.lg:translate-x-0]="true">
+            <app-list-feeds></app-list-feeds>
+        </div>
+
+        <!-- Entries list -->
+        <div id="list-entries"
+             class="w-full lg:w-96 fixed lg:relative h-[calc(100vh-56px)] lg:h-full transition-transform duration-300 bg-white border-r border-gray-200"
+             [class.translate-x-0]="currentView === 'entries'"
+             [class.translate-x-full]="currentView !== 'entries'"
+             [class.lg:translate-x-0]="true">
+            <app-list-entries></app-list-entries>
+        </div>
+
+        <!-- Article reader -->
+        <div id="show-entry"
+             class="flex-1 fixed lg:relative w-full h-[calc(100vh-56px)] lg:h-full transition-transform duration-300 bg-white overflow-auto"
+             [class.translate-x-0]="currentView === 'reader'"
+             [class.translate-x-full]="currentView !== 'reader'"
+             [class.lg:translate-x-0]="true">
+            <app-show-entry></app-show-entry>
+        </div>
+    </div>
 </div>
