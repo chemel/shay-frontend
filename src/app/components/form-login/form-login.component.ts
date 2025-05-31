@@ -5,6 +5,7 @@ import { AuthService } from '@services/auth.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '@app/services/user.service';
 import { LoginResponse } from '@app/interfaces/login-response.interface';
+import { ErrorResponse } from '@app/interfaces/login-error-response.interface';
 
 @Component({
   selector: 'app-form-login',
@@ -46,7 +47,7 @@ export class FormLoginComponent implements OnInit {
 
       this.authService.login(username, password).subscribe({
         next: (data: LoginResponse) => {
-          if(data.token) {
+          if(data.token && data.token.length > 0) {
             // Saving JWT token
             this.authService.setJwt(data.token);
 
@@ -62,9 +63,9 @@ export class FormLoginComponent implements OnInit {
             this.errorMessage = 'Unexpected error';
           }
         },
-        error: (data) => {
-          if(data.error.code && data.error.code == 401 && data.error.message) {
-            this.errorMessage = data.error.message;
+        error: (data: ErrorResponse) => {
+          if(data.status && data.status == 401 && data.message) {
+            this.errorMessage = data.statusText;
           }
           else {
             this.errorMessage = 'Unexpected error';
