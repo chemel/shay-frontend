@@ -1,25 +1,66 @@
-<div *ngIf="entry" class="max-w-4xl mx-auto">
-    <div class="space-y-6">
-        <div class="space-y-2">
-            <h1 class="text-3xl font-bold text-gray-900 leading-tight">{{ entry.title }}</h1>    
-            <div class="flex items-center gap-4 text-sm text-gray-500">
-                <div class="flex items-center gap-1.5">
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span>{{ entry.date|date:'medium' }}</span>
+<div *ngIf="entry" class="min-h-full">
+    <!-- Article header with gradient background -->
+    <div class="bg-gradient-to-b from-gray-50 to-white py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="space-y-6">
+                <!-- Article title -->
+                <h1 class="text-4xl font-bold text-gray-900 leading-tight">{{ entry.title }}</h1>
+
+                <!-- Action bar -->
+                <div class="flex items-center justify-between pt-4">
+                    <div class="flex items-center gap-4 text-sm">
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>{{ entry.date | date:'dd/MM/yyyy HH:mm' }}</span>
+                        </div>
+                        <a target="_blank" 
+                           [href]="entry.permalink" 
+                           class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors duration-200">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            <span>View original article</span>
+                        </a>
+                    </div>
                 </div>
-                <a target="_blank" 
-                   href="{{ entry.permalink }}" 
-                   class="flex items-center gap-1.5 text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200">
-                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    <span>Voir l'article original</span>
-                </a>
             </div>
         </div>
+    </div>
 
-        <div class="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline" [innerHTML]="entry.content | sanitizeHtml"></div>
+    <!-- Article content -->
+    <div class="max-w-4xl mx-auto px-4 pb-32">
+        <div class="prose prose-lg max-w-none 
+                    prose-headings:text-gray-900 
+                    prose-p:text-gray-600 
+                    prose-a:text-blue-600 
+                    prose-a:no-underline 
+                    hover:prose-a:underline
+                    prose-img:rounded-lg
+                    prose-img:shadow-lg
+                    prose-blockquote:border-l-4
+                    prose-blockquote:border-blue-500
+                    prose-blockquote:bg-blue-50
+                    prose-blockquote:px-6
+                    prose-blockquote:py-4
+                    prose-blockquote:rounded-r-lg
+                    prose-pre:bg-gray-900
+                    prose-pre:rounded-lg
+                    prose-code:text-blue-600
+                    prose-strong:text-gray-900" 
+             [innerHTML]="entry.content | sanitizeHtml">
+        </div>
+    </div>
+</div>
+
+<!-- Empty state -->
+<div *ngIf="!entry" class="h-full flex items-center justify-center">
+    <div class="text-center text-gray-500">
+        <svg class="mx-auto h-12 w-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+        </svg>
+        <p class="text-lg font-medium">Select an article to read</p>
+        <p class="mt-1 text-sm">Choose from the list on the left</p>
     </div>
 </div>
