@@ -15,7 +15,7 @@ export class EntryService {
         private jsonService: JsonService
     ) { }
 
-    public getEntries(feedId: number): Observable<Entry[]> {
+    public getEntries(feedId: string): Observable<Entry[]> {
         return this.http.get<Entry[]>(environment.backendUrl + '/entries?feed.id='+feedId)
             .pipe(
                 map(entries => this.jsonService.deserializeArray(entries, Entry))

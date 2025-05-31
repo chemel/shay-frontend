@@ -3,8 +3,8 @@ import { DateConverter } from './converters/date.converter';
 
 @JsonObject('Entry')
 export class Entry {
-    @JsonProperty('id', Number, true)
-    id?: number;
+    @JsonProperty('id', String, true)
+    id?: string;
 
     @JsonProperty('date', DateConverter, true)
     date?: Date;

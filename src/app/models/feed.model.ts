@@ -3,8 +3,8 @@ import { JsonObject, JsonProperty } from 'json2typescript';
 
 @JsonObject('Feed')
 export class Feed {
-  @JsonProperty('id', Number, true)
-  id?: number;
+  @JsonProperty('id', String, true)
+  id?: string;
 
   @JsonProperty('title', String, true)
   title?: string;
