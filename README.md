@@ -2,38 +2,17 @@
 
 Shay is a modern RSS reader built with Angular and Symfony
 
-## Development Installation Guide
+## Documentation
 
-### Prerequisites
+- [Development Installation Guide](docs/install-guide-development.md) - Guide for setting up the development environment
+- [Production Installation Guide](docs/install-guide-production.md) - Guide for building and deploying Shay in production
 
-- Node.js (v18 or higher)
-- npm (Node Package Manager)
-- Angular CLI (v19)
+## Tech Stack
 
-### Installation Steps
+- Frontend: Angular with PrimeNG and Tailwind CSS
+- Backend: Symfony API Platform
+- Database: PostgreSQL
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/chemel/shay-frontend.git
-   cd shay-frontend
-   ```
+## License
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   ng serve
-   ```
-   The application will be available at `http://localhost:4200/`
-
-### Technologies Used
-
-- Angular 19
-- PrimeNG UI Components
-- TailwindCSS
-- TypeScript
-
-For more information about the backend setup, please refer to the Symfony backend repository.
+This project is licensed under the MIT License - see the LICENSE file for details.
