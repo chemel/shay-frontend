@@ -13,7 +13,9 @@ export const authInterceptor: HttpInterceptorFn = (
   const router = inject(Router);
 
   const isApiRequest = req.url.startsWith(environment.backendUrl);
-  if (isApiRequest) {
+  const isLoginRequest = req.url.endsWith('/login');
+  
+  if (isApiRequest && !isLoginRequest) {
     const authToken = authService.getJwt();
     if(authToken) {
       req = req.clone({
