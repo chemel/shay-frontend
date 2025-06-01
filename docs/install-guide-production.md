@@ -33,6 +33,8 @@ This guide will help you deploy the Shay RSS Reader frontend application in a pr
    };
    ```
 
+    For more information about the backend setup, please refer to the [Symfony backend](https://github.com/chemel/shay-backend) repository.
+
 4. **Build the Application**
    ```bash
    npm run build
