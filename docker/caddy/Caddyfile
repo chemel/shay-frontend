@@ -1,0 +1,8 @@
+:80 {
+        # Set this path to your site's directory.
+        root * /srv
+        file_server
+}
+
+# Refer to the Caddy docs for more information:
+# https://caddyserver.com/docs/caddyfile

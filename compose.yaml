@@ -1,0 +1,17 @@
+services:
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+    volumes:
+      - $PWD/docker/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/dist/angular-19/browser:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
