@@ -22,6 +22,13 @@ export class EntryService {
             );
     }
 
+    public getEntriesByCategory(categoryId: string): Observable<Entry[]> {
+        return this.http.get<Entry[]>(environment.backendUrl + '/entries?feed.category.id='+categoryId)
+            .pipe(
+                map(entries => this.jsonService.deserializeArray(entries, Entry))
+            );
+    }
+
     public read(entry: Entry): Observable<any> {
         const data = {
             'readed': true
