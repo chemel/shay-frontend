@@ -4,7 +4,7 @@ import { Category } from '@app/models/category.model';
 import { Feed } from 'src/app/models/feed.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { FeedService } from 'src/app/services/feed.service';
-import { DropdownModule } from 'primeng/dropdown';
+import { SelectModule } from 'primeng/select';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   selector: 'app-new-feed',
   templateUrl: './new-feed.component.html',
   styleUrls: ['./new-feed.component.css'],
-  imports: [DropdownModule, ReactiveFormsModule, ToastModule],
+  imports: [SelectModule, ReactiveFormsModule, ToastModule],
   providers: [MessageService]
 })
 export class NewFeedComponent implements OnInit {
