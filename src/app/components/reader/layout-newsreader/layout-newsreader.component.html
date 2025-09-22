@@ -27,7 +27,7 @@
     <div class="flex h-full">
         <!-- Feeds sidebar -->
         <div id="list-feeds" 
-             class="w-full lg:w-64 fixed lg:relative h-[calc(100vh-64px)] lg:h-full transition-transform duration-300 bg-white border-r border-gray-200 overflow-y-auto"
+             class="w-full lg:w-1/4 fixed lg:relative h-[calc(100vh-64px)] lg:h-full transition-transform duration-300 bg-white border-r border-gray-200 overflow-y-auto"
              [class.translate-x-0]="currentView === 'feeds'"
              [class.-translate-x-full]="currentView !== 'feeds'"
              [class.lg:translate-x-0]="true">
@@ -36,7 +36,7 @@
 
         <!-- Entries list -->
         <div id="list-entries"
-             class="w-full lg:w-96 fixed lg:relative h-[calc(100vh-64px)] lg:h-full transition-transform duration-300 bg-white border-r border-gray-200 overflow-y-auto"
+             class="w-full lg:w-1/4 fixed lg:relative h-[calc(100vh-64px)] lg:h-full transition-transform duration-300 bg-white border-r border-gray-200 overflow-y-auto"
              [class.translate-x-0]="currentView === 'entries'"
              [class.translate-x-full]="currentView !== 'entries'"
              [class.lg:translate-x-0]="true">
