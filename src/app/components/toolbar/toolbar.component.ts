@@ -3,7 +3,6 @@ import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { RouterLink } from '@angular/router';
-import { User } from '@app/models/user.model';
 import { AuthService } from '@app/services/auth.service';
 import { NgIf } from '@angular/common';
 
@@ -17,6 +16,14 @@ export class ToolbarComponent implements OnInit {
   public isUserAuthenticated: boolean = false;
 
   public items: MenuItem[] = [
+    {
+      label: 'New feed',
+      icon: 'pi pi-plus',
+      routerLink: '/new-feed'
+    },
+    {
+      separator: true
+    },
     {
       label: 'Manage feeds',
       icon: 'pi pi-list',
