@@ -16,6 +16,7 @@ import { ErrorResponse } from '@app/interfaces/login-error-response.interface';
 export class FormLoginComponent implements OnInit {
 
   public form: FormGroup;
+  public loading: boolean = false;
   public errorMessage?: string;
   
   constructor(
@@ -41,6 +42,7 @@ export class FormLoginComponent implements OnInit {
   public onSubmit() {
     if(this.form.valid) {
       this.errorMessage = undefined;
+      this.loading = true;
 
       const username = this.form.get('username')?.value;
       const password = this.form.get('password')?.value;
@@ -62,6 +64,7 @@ export class FormLoginComponent implements OnInit {
           else {
             this.errorMessage = 'Unexpected error';
           }
+          this.loading = false;
         },
         error: (data: ErrorResponse) => {
           if(data.status && data.status == 401 && data.message) {
@@ -70,6 +73,7 @@ export class FormLoginComponent implements OnInit {
           else {
             this.errorMessage = 'Unexpected error';
           }
+          this.loading = false;
         }
       });
     }
