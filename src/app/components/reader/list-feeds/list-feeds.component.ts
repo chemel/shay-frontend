@@ -1,10 +1,10 @@
 
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Category } from 'src/app/models/category.model';
-import { Feed } from 'src/app/models/feed.model';
-import { CategoryService } from 'src/app/services/category.service';
-import { FeedService } from 'src/app/services/feed.service';
-import { NewsreaderService } from 'src/app/services/newsreader.service';
+import { Category } from '@models/category.model';
+import { Feed } from '@models/feed.model';
+import { CategoryService } from '@services/category.service';
+import { FeedService } from '@services/feed.service';
+import { NewsreaderService } from '@services/newsreader.service';
 
 @Component({
   selector: 'app-list-feeds',

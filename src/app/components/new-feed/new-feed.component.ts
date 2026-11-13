@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Category } from '@app/models/category.model';
-import { Feed } from 'src/app/models/feed.model';
-import { CategoryService } from 'src/app/services/category.service';
-import { FeedService } from 'src/app/services/feed.service';
+import { Feed } from '@models/feed.model';
+import { CategoryService } from '@services/category.service';
+import { FeedService } from '@services/feed.service';
 import { SelectModule } from 'primeng/select';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
