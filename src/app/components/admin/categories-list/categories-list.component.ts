@@ -6,12 +6,12 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-categories-list',
-  imports: [CommonModule, ButtonModule, ConfirmDialogModule, InputTextModule, ReactiveFormsModule, ToastModule],
+  imports: [ButtonModule, ConfirmDialogModule, InputTextModule, ReactiveFormsModule, ToastModule],
   providers: [ConfirmationService, MessageService],
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss']

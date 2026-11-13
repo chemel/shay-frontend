@@ -4,15 +4,14 @@ import { FeedService } from '@app/services/feed.service';
 import { ButtonModule } from 'primeng/button';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-feeds-list',
   imports: [
-    CommonModule,
     ButtonModule,
-    ConfirmDialogModule,
-  ],
+    ConfirmDialogModule
+],
   providers: [ConfirmationService],
   templateUrl: './feeds-list.component.html',
   styleUrls: ['./feeds-list.component.scss']

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
-import { CommonModule } from '@angular/common';
+
 import { UserService } from '@app/services/user.service';
 import { LoginResponse } from '@app/interfaces/login-response.interface';
 import { ErrorResponse } from '@app/interfaces/login-error-response.interface';
@@ -11,7 +11,7 @@ import { ErrorResponse } from '@app/interfaces/login-error-response.interface';
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.css'],
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [ReactiveFormsModule]
 })
 export class FormLoginComponent implements OnInit {
 

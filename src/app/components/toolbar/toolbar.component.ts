@@ -4,11 +4,11 @@ import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@app/services/auth.service';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-toolbar',
-  imports: [CommonModule, MenuModule, ButtonModule, RouterLink],
+  imports: [MenuModule, ButtonModule, RouterLink],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css']
 })
