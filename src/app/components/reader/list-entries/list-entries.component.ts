@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Entry } from '@app/models/entry.model';
@@ -9,6 +9,7 @@ import { NewsreaderService } from '@services/newsreader.service';
   selector: 'app-list-entries',
   imports: [CommonModule],
   templateUrl: './list-entries.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./list-entries.component.css']
 })
 export class ListEntriesComponent implements OnInit, OnDestroy {

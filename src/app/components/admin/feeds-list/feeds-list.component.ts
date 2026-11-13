@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Feed } from '@app/models/feed.model';
 import { FeedService } from '@app/services/feed.service';
-import { ButtonModule } from 'primeng/button';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
-import { CommonModule } from '@angular/common';
+import { ButtonModule } from '@openng/optimus-ui/button';
+import { ConfirmDialogModule } from '@openng/optimus-ui/confirmdialog';
+import { ConfirmationService } from '@openng/optimus-ui/api';
+
 
 @Component({
   selector: 'app-feeds-list',
   imports: [
-    CommonModule,
     ButtonModule,
-    ConfirmDialogModule,
-  ],
+    ConfirmDialogModule
+],
   providers: [ConfirmationService],
   templateUrl: './feeds-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./feeds-list.component.scss']
 })
 export class FeedsListComponent implements OnInit {

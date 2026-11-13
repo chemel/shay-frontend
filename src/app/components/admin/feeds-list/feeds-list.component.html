@@ -1,43 +1,47 @@
 <div class="container mx-auto px-4 py-8">
-    <div class="mb-8">
-        <h1 class="text-2xl text-center font-bold text-gray-900 mb-6">Feeds Management</h1>
+  <div class="mb-8">
+    <h1 class="text-2xl text-center font-bold text-gray-900 mb-6">Feeds Management</h1>
 
-        <!-- Feeds grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div *ngFor="let feed of feedsList" 
-                class="bg-white rounded-lg shadow p-6 flex flex-col">
-                <div class="flex flex-col gap-2">
-                    <div class="flex items-start justify-between">
-                        <div class="flex-grow">
-                            <h3 class="text-lg font-semibold text-gray-800">{{feed.title}}</h3>
-                            <a [href]="feed.url" target="_blank" 
-                               class="text-sm text-indigo-600 hover:text-indigo-800 break-all">
-                                {{feed.url}}
-                            </a>
-                        </div>
-                        <div class="ml-4">
-                            <p-button icon="pi pi-trash" 
-                                severity="danger"
-                                [text]="true"
-                                (onClick)="deleteFeed(feed)">
-                            </p-button>
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <span class="inline-flex items-center rounded-full bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700">
-                            {{feed.category?.name || 'No category'}}
-                        </span>
-                    </div>
-                </div>
+    <!-- Feeds grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      @for (feed of feedsList; track feed) {
+        <div
+          class="bg-white rounded-lg shadow p-6 flex flex-col">
+          <div class="flex flex-col gap-2">
+            <div class="flex items-start justify-between">
+              <div class="flex-grow">
+                <h3 class="text-lg font-semibold text-gray-800">{{feed.title}}</h3>
+                <a [href]="feed.url" target="_blank"
+                  class="text-sm text-indigo-600 hover:text-indigo-800 break-all">
+                  {{feed.url}}
+                </a>
+              </div>
+              <div class="ml-4">
+                <p-button icon="pi pi-trash"
+                  severity="danger"
+                  [text]="true"
+                  (onClick)="deleteFeed(feed)">
+                </p-button>
+              </div>
             </div>
+            <div class="mt-2">
+              <span class="inline-flex items-center rounded-full bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700">
+                {{feed.category?.name || 'No category'}}
+              </span>
+            </div>
+          </div>
         </div>
-
-        <!-- Empty state -->
-        <div *ngIf="feedsList.length === 0" 
-            class="bg-gray-50 rounded-lg p-8 text-center">
-            <p class="text-gray-600">No feed found.</p>
-        </div>
+      }
     </div>
 
-    <p-confirmDialog></p-confirmDialog>
+    <!-- Empty state -->
+    @if (feedsList.length === 0) {
+      <div
+        class="bg-gray-50 rounded-lg p-8 text-center">
+        <p class="text-gray-600">No feed found.</p>
+      </div>
+    }
+  </div>
+
+  <p-confirmdialog></p-confirmdialog>
 </div>

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Category } from '@app/models/category.model';
-import { Feed } from 'src/app/models/feed.model';
-import { CategoryService } from 'src/app/services/category.service';
-import { FeedService } from 'src/app/services/feed.service';
-import { SelectModule } from 'primeng/select';
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { Feed } from '@models/feed.model';
+import { CategoryService } from '@services/category.service';
+import { FeedService } from '@services/feed.service';
+import { SelectModule } from '@openng/optimus-ui/select';
+import { ToastModule } from '@openng/optimus-ui/toast';
+import { MessageService } from '@openng/optimus-ui/api';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   templateUrl: './new-feed.component.html',
   styleUrls: ['./new-feed.component.css'],
   imports: [SelectModule, ReactiveFormsModule, ToastModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [MessageService]
 })
 export class NewFeedComponent implements OnInit {

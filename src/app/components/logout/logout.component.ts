@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '@app/models/user.model';
 import { AuthService } from '@app/services/auth.service';
@@ -7,6 +7,7 @@ import { AuthService } from '@app/services/auth.service';
   selector: 'app-logout',
   imports: [],
   templateUrl: './logout.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './logout.component.scss'
 })
 export class LogoutComponent implements OnInit {

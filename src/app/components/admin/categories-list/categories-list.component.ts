@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Category } from '@app/models/category.model';
 import { CategoryService } from '@app/services/category.service';
-import { ButtonModule } from 'primeng/button';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService, MessageService } from 'primeng/api';
-import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from '@openng/optimus-ui/button';
+import { ConfirmDialogModule } from '@openng/optimus-ui/confirmdialog';
+import { ConfirmationService, MessageService } from '@openng/optimus-ui/api';
+import { InputTextModule } from '@openng/optimus-ui/inputtext';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { ToastModule } from 'primeng/toast';
+
+import { ToastModule } from '@openng/optimus-ui/toast';
 
 @Component({
   selector: 'app-categories-list',
-  imports: [CommonModule, ButtonModule, ConfirmDialogModule, InputTextModule, ReactiveFormsModule, ToastModule],
+  imports: [ButtonModule, ConfirmDialogModule, InputTextModule, ReactiveFormsModule, ToastModule],
   providers: [ConfirmationService, MessageService],
   templateUrl: './categories-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./categories-list.component.scss']
 })
 export class CategoriesListComponent implements OnInit {

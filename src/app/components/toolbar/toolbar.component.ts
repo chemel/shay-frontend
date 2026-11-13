@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuModule } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
-import { MenuItem } from 'primeng/api';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { MenuModule } from '@openng/optimus-ui/menu';
+import { ButtonModule } from '@openng/optimus-ui/button';
+import { MenuItem } from '@openng/optimus-ui/api';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@app/services/auth.service';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-toolbar',
-  imports: [CommonModule, MenuModule, ButtonModule, RouterLink],
+  imports: [MenuModule, ButtonModule, RouterLink],
   templateUrl: './toolbar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
