@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsreaderService } from '@services/newsreader.service';
 import { Entry } from '@app/models/entry.model';
@@ -8,6 +8,7 @@ import { SanitizeHtmlPipe } from '@app/pipes/sanitize-html.pipe';
   selector: 'app-show-entry',
   imports: [CommonModule, SanitizeHtmlPipe],
   templateUrl: './show-entry.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./show-entry.component.css']
 })
 export class ShowEntryComponent implements OnInit {

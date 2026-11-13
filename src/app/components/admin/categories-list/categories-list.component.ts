@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Category } from '@app/models/category.model';
 import { CategoryService } from '@app/services/category.service';
 import { ButtonModule } from 'primeng/button';
@@ -14,6 +14,7 @@ import { ToastModule } from 'primeng/toast';
   imports: [ButtonModule, ConfirmDialogModule, InputTextModule, ReactiveFormsModule, ToastModule],
   providers: [ConfirmationService, MessageService],
   templateUrl: './categories-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./categories-list.component.scss']
 })
 export class CategoriesListComponent implements OnInit {

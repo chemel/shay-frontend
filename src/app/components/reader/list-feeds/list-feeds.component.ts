@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
 import { Feed } from 'src/app/models/feed.model';
 import { CategoryService } from 'src/app/services/category.service';
@@ -10,6 +10,7 @@ import { NewsreaderService } from 'src/app/services/newsreader.service';
   selector: 'app-list-feeds',
   templateUrl: './list-feeds.component.html',
   styleUrls: ['./list-feeds.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: []
 })
 export class ListFeedsComponent implements OnInit {

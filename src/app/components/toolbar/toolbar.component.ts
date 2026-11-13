@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
@@ -10,6 +10,7 @@ import { AuthService } from '@app/services/auth.service';
   selector: 'app-toolbar',
   imports: [MenuModule, ButtonModule, RouterLink],
   templateUrl: './toolbar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {

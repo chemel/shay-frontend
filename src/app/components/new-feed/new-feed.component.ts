@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Category } from '@app/models/category.model';
 import { Feed } from 'src/app/models/feed.model';
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   templateUrl: './new-feed.component.html',
   styleUrls: ['./new-feed.component.css'],
   imports: [SelectModule, ReactiveFormsModule, ToastModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [MessageService]
 })
 export class NewFeedComponent implements OnInit {

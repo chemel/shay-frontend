@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ListEntriesComponent } from '../list-entries/list-entries.component';
 import { ShowEntryComponent } from '../show-entry/show-entry.component';
 import { ListFeedsComponent } from '../list-feeds/list-feeds.component';
@@ -10,6 +10,7 @@ type ViewType = 'feeds' | 'entries' | 'reader';
   selector: 'app-layout-newsreader',
   templateUrl: './layout-newsreader.component.html',
   styleUrls: ['./layout-newsreader.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ListFeedsComponent, ListEntriesComponent, ShowEntryComponent]
 })
 export class LayoutNewsreaderComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Category } from '@app/models/category.model';
 import { CategoryService } from '@app/services/category.service';
 import { CommonModule } from '@angular/common';
@@ -9,6 +9,7 @@ import { Entry } from '@app/models/entry.model';
   selector: 'app-now-reader',
   imports: [CommonModule],
   templateUrl: './now-reader.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './now-reader.component.scss'
 })
 export class NowReaderComponent implements OnInit {

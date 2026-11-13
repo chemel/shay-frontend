@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Feed } from '@app/models/feed.model';
 import { FeedService } from '@app/services/feed.service';
 import { ButtonModule } from 'primeng/button';
@@ -14,6 +14,7 @@ import { ConfirmationService } from 'primeng/api';
 ],
   providers: [ConfirmationService],
   templateUrl: './feeds-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./feeds-list.component.scss']
 })
 export class FeedsListComponent implements OnInit {
