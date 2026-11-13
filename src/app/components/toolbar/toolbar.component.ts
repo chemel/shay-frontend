@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { MenuModule } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
-import { MenuItem } from 'primeng/api';
+import { MenuModule } from '@openng/optimus-ui/menu';
+import { ButtonModule } from '@openng/optimus-ui/button';
+import { MenuItem } from '@openng/optimus-ui/api';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '@app/services/auth.service';
 
