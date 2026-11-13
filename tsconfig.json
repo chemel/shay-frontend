@@ -22,7 +22,8 @@
       "@app/*": ["src/app/*"],
       "@services/*": ["src/app/services/*"],
       "@components/*": ["src/app/components/*"]
-    }
+    },
+    "ignoreDeprecations": "6.0"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

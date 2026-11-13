@@ -1,6 +1,6 @@
 {
-  "name": "angular-19",
-  "version": "0.0.0",
+  "name": "shay",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -21,7 +21,7 @@
     "json2typescript": "^1.6.1",
     "postcss": "^8.5.6",
     "primeicons": "^7.0.0",
-    "primeng": "^21.1.10",
+    "primeng": "^22.1.5",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.1.13",
     "tslib": "^2.3.0",
